@@ -43,7 +43,8 @@ while looping:
     print(" You have total of {} Auto_Tester email\n\
  Please Enter a number to see your result\n\
  Enter 'reload' to reload from cdf email\n\
- Enter 'areload' to Auto-reload untile it finds new Auto-test result Email\n\
+ Enter 'areload' to Auto-reload until it finds \n\
+    new Auto-test result Email\n\
  Enter 'exit' to exit the program".format(auto_len))
     user_input = input('Your selection: ')
     if user_input.isdigit() and 0 <= (int(user_input) - 1) < auto_len:
