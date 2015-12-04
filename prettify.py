@@ -1,4 +1,4 @@
-import getpass, poplib
+import getpass, poplib, time
 
 def read_auto_tester(mail_line, user):
     title_line = -8
@@ -43,6 +43,7 @@ while looping:
     print(" You have total of {} Auto_Tester email\n\
  Please Enter a number to see your result\n\
  Enter 'reload' to reload from cdf email\n\
+ Enter 'areload' to Auto-reload untile it finds new Auto-test result Email\n\
  Enter 'exit' to exit the program".format(auto_len))
     user_input = input('Your selection: ')
     if user_input.isdigit() and 0 <= (int(user_input) - 1) < auto_len:
@@ -53,3 +54,13 @@ while looping:
         print('Reloading')
         auto_tester = get_auto_tester(user, pass_)
         auto_len = len(auto_tester)
+    if user_input.lower() == 'areload':
+        print('Auto Reloading')
+        auto_len_temp = len(auto_tester)
+        i = 0
+        while i < 20 and auto_len_temp == auto_len:
+            time.sleep(60)
+            auto_tester = get_auto_tester(user, pass_)
+            auto_len_temp = len(auto_tester)
+            i += 1
+        auto_len = auto_len_temp
