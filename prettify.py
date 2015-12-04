@@ -59,6 +59,7 @@ while looping:
         auto_len_temp = len(auto_tester)
         i = 0
         while i < 20 and auto_len_temp == auto_len:
+            print('No.{} Auto Reload attempt'.format(i + 1))
             time.sleep(60)
             auto_tester = get_auto_tester(user, pass_)
             auto_len_temp = len(auto_tester)
